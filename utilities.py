@@ -1,4 +1,6 @@
 from __future__ import annotations
+
+from datetime import datetime
 from typing import Union, Optional
 from pathlib import Path
 
@@ -49,6 +51,9 @@ Path.sanestr = sane_path_str
 
 Path.__str__ = sane_path_str
 
+
+def timestamp(strf: str = "%y%m%d_%H%M%S") -> str:
+    return datetime.now().strftime(strf)
 
 class InvalidPath(Exception):
     pass
